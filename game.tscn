@@ -1,18 +1,37 @@
 [gd_scene load_steps=3 format=3 uid="uid://cb8pssb7dq185"]
 
 [ext_resource type="PackedScene" uid="uid://w7fghxbkjqx" path="res://player.tscn" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://c7d4g5thmbwjj" path="res://images/godotwaka2.png" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://cb3tccmoyto0h" path="res://images/texture_01.png" id="2_e2o6t"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
-[node name="Node2D" parent="." instance=ExtResource("1_80nbo")]
-
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -34332.0
 offset_top = -14803.0
-offset_right = 263097.0
+offset_right = 700985.0
 offset_bottom = 16804.0
 texture = ExtResource("2_e2o6t")
 stretch_mode = 1
+
+[node name="Node2D" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(229, -213)
+
+[node name="Lanes" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="Marker2D" type="Marker2D" parent="Lanes"]
+position = Vector2(228, -1240)
+
+[node name="Marker2D2" type="Marker2D" parent="Lanes"]
+position = Vector2(228, -723)
+
+[node name="Marker2D3" type="Marker2D" parent="Lanes"]
+position = Vector2(224, -207)
+
+[node name="Marker2D4" type="Marker2D" parent="Lanes"]
+position = Vector2(228, 304)
+
+[node name="Marker2D5" type="Marker2D" parent="Lanes"]
+position = Vector2(228, 815)
