@@ -1,19 +1,18 @@
 extends CharacterBody2D
 
 
-const SPEED = 20.0
+const SPEED = 2.0
 const BRAKE = 0.02
-var FORWARD_FORCE = 400.0
 const MAX_VELOCITY_X = 4000.0
 const FRICTION = 0.2
 const ACCELERATION = 0.02
-const DIFFICULTY_FORCE = 10
+const DIFFICULTY_FORCE = 2
 var lane_positions = []
 var current_lane = 2
 var lane_tween: Tween
 
 func _ready() -> void:
-	velocity.x = 100.0
+	velocity.x = 50
 	
 	var lanes = %Lanes.get_children()
 	
@@ -64,7 +63,7 @@ func change_lane(up: bool):
 		lane_tween.tween_property($Sprite, "animation", &"up", 0)
 	else:
 		lane_tween.tween_property($Sprite, "animation", &"down", 0)
-	lane_tween.tween_property(self, "position:y",lane_positions[current_lane].y, 0.1)
+	lane_tween.tween_property(self, "position:y",lane_positions[current_lane].y, 0.2)
 	lane_tween.tween_property($Sprite, "animation", &"default", 0)
 	
 	
