@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://qqodsukdy48p"]
+
+[ext_resource type="Script" uid="uid://xvqua4kn0c25" path="res://slices/scripts/single_slice.gd" id="1_1au2e"]
+[ext_resource type="PackedScene" uid="uid://b17qam4fiahnn" path="res://single.tscn" id="1_i6pul"]
+
+[node name="SingleSlice" type="Node2D"]
+script = ExtResource("1_1au2e")
+
+[node name="Single" parent="." instance=ExtResource("1_i6pul")]

@@ -52,13 +52,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oejms"]
-size = Vector2(12, 12)
+size = Vector2(1.25, 8)
 
-[node name="Single" type="StaticBody2D"]
+[node name="Single" type="StaticBody2D" groups=["obstacles"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g1jvg")
-frame_progress = 0.65356183
+autoplay = "default"
+frame_progress = 0.40932912
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_oejms")
