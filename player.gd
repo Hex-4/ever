@@ -68,9 +68,11 @@ func _physics_process(delta: float) -> void:
 	### DODGING ###
 	
 	if Input.is_action_just_pressed("ui_up") and current_lane > 0:
+		$UpSound.play()
 		current_lane -= 1
 		change_lane(true)
 	elif Input.is_action_just_pressed("ui_down") and current_lane < 4:
+		$DownSound.play()
 		current_lane += 1
 		change_lane(false)
 		

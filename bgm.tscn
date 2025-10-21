@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1f58ybouwg7t"]
+
+[ext_resource type="AudioStream" uid="uid://d3jthf1nvqrdf" path="res://audio/Latin Industries.mp3" id="1_yqwqh"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_yqwqh")
+volume_db = -8.052
+autoplay = true

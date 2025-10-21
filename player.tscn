@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://w7fghxbkjqx"]
+[gd_scene load_steps=14 format=3 uid="uid://w7fghxbkjqx"]
 
 [ext_resource type="Script" uid="uid://bp3nnt4qpwc15" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://t2ym0e7ybnhj" path="res://assets/particle.png" id="2_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://ctfo2pqrk6k48" path="res://assets/player.png" id="2_onrkg"]
 [ext_resource type="FontFile" uid="uid://h62u4530l03h" path="res://assets/Kenney Thick.ttf" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://dow3scb155mgk" path="res://audio/up.wav" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://ds5b1bx02j04o" path="res://audio/down.wav" id="5_2hs0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -64,6 +67,23 @@ font = ExtResource("3_i3pqv")
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 54
+texture = ExtResource("2_2hs0m")
+lifetime = 1.98
+direction = Vector2(-1, 0)
+spread = 21.4
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.99
+initial_velocity_max = 34.96
+angle_min = -10.0
+angle_max = 70.5
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color = Color(0.9372549, 0.6431373, 0.19215687, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1jxqw")
 animation = &"brake"
@@ -85,3 +105,11 @@ offset_right = 134.0
 offset_bottom = 122.0
 text = "six seven"
 label_settings = SubResource("LabelSettings_hqtel")
+
+[node name="UpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sweqy")
+volume_db = -6.0
+
+[node name="DownSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2hs0m")
+volume_db = -6.0
