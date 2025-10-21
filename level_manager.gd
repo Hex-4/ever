@@ -20,6 +20,7 @@ func pick_weighted_slice() -> PackedScene:
 		total += lerp(slice_scenes[slice].x, slice_scenes[slice].x, owner.difficulty)
 		if random < total:
 			return slice
+			
 	return slice_scenes.keys()[0]
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +28,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _process(delta):
-	owner.difficulty += 0.00002
+	owner.difficulty += 0.0003
+	print(owner.difficulty)
 
 	if (%Player as CharacterBody2D).global_position.x + 1000 > last_spawn_x:
 		spacing = lerp(600, 250, owner.difficulty)

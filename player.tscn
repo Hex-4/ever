@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://w7fghxbkjqx"]
+[gd_scene load_steps=11 format=3 uid="uid://w7fghxbkjqx"]
 
 [ext_resource type="Script" uid="uid://bp3nnt4qpwc15" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ctfo2pqrk6k48" path="res://assets/player.png" id="2_onrkg"]
+[ext_resource type="FontFile" uid="uid://h62u4530l03h" path="res://assets/Kenney Thick.ttf" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -57,6 +58,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(1, 4)
 
+[sub_resource type="LabelSettings" id="LabelSettings_hqtel"]
+font = ExtResource("3_i3pqv")
+
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
@@ -73,3 +77,11 @@ offset = Vector2(120, 0)
 zoom = Vector2(3, 3)
 limit_enabled = false
 position_smoothing_speed = 5.265
+
+[node name="Score" type="Label" parent="Camera2D"]
+offset_left = -65.0
+offset_top = 86.0
+offset_right = 134.0
+offset_bottom = 122.0
+text = "six seven"
+label_settings = SubResource("LabelSettings_hqtel")

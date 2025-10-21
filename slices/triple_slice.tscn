@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgck6sb2jd6bh"]
+
+[ext_resource type="Script" uid="uid://xtfjbbv57rhs" path="res://slices/scripts/triple_slice.gd" id="1_tgdfr"]
+[ext_resource type="PackedScene" uid="uid://b17qam4fiahnn" path="res://single.tscn" id="2_evfva"]
+
+[node name="TripleSlice" type="Node2D"]
+script = ExtResource("1_tgdfr")
+
+[node name="Single" parent="." instance=ExtResource("2_evfva")]
+
+[node name="Single2" parent="." instance=ExtResource("2_evfva")]
+
+[node name="Single3" parent="." instance=ExtResource("2_evfva")]

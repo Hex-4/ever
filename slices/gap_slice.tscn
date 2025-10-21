@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs5fxc2vfnu7o"]
+
+[ext_resource type="Script" uid="uid://u3cftg38lkln" path="res://slices/scripts/gap_slice.gd" id="1_q21lb"]
+[ext_resource type="PackedScene" uid="uid://b17qam4fiahnn" path="res://single.tscn" id="2_w5cr2"]
+
+[node name="GapSlice" type="Node2D"]
+script = ExtResource("1_q21lb")
+
+[node name="Single" parent="." instance=ExtResource("2_w5cr2")]
+
+[node name="Single2" parent="." instance=ExtResource("2_w5cr2")]
+
+[node name="Single3" parent="." instance=ExtResource("2_w5cr2")]
+
+[node name="Single4" parent="." instance=ExtResource("2_w5cr2")]

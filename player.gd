@@ -3,13 +3,15 @@ extends CharacterBody2D
 
 const SPEED = 2.0
 const BRAKE = 0.02
-const MAX_VELOCITY_X = 600.0
+const MAX_VELOCITY_X = 700.0
 const FRICTION = 0.2
 const ACCELERATION = 0.02
-const DIFFICULTY_FORCE = 10
+const DIFFICULTY_FORCE = 5
 var lane_positions = []
 var current_lane = 2
 var lane_tween: Tween
+
+signal game_over
 
 
 @export var tilemap1: Node2D
@@ -28,6 +30,8 @@ func _process(delta):
 			tilemap2.global_position.x = tilemap1.global_position.x + tilemap_width
 
 func _ready() -> void:
+	
+	
 	
 	tilemap_width = tilemap1.get_child(0).get_used_rect().size.x * 16
 	velocity.x = 50
@@ -52,6 +56,7 @@ func _physics_process(delta: float) -> void:
 	if forward > 0:
 		velocity.x += SPEED * forward
 	elif forward < 0:
+		get_parent().score -= 15
 		if not lane_tween or not lane_tween.is_running():
 			$Sprite.animation = "brake"
 		velocity.x += velocity.x * BRAKE * forward
@@ -59,7 +64,6 @@ func _physics_process(delta: float) -> void:
 	velocity.x = max(velocity.x, 100)
 	
 	$CollisionShape2D.position.x = -(ceil(velocity.x / 50)) + -10
-	print(velocity.x)
 	
 	### DODGING ###
 	
@@ -71,14 +75,14 @@ func _physics_process(delta: float) -> void:
 		change_lane(false)
 		
 	
+	get_parent().score += velocity.x / 64
 	
+	if get_parent().playing:
+		var collision: KinematicCollision2D = move_and_collide(velocity * delta)
 	
-	
-	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
-	
-	if collision:
-		if (collision.get_collider() as Node2D).is_in_group("obstacles"):
-			get_tree().quit()
+		if collision:
+			if (collision.get_collider() as Node2D).is_in_group("obstacles"):
+				game_over.emit()
 		
 	
 func change_lane(up: bool):
